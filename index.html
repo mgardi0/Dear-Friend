@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>هاوڕێیەتی ڕاستەقینە</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* ناساندنی فۆنتە نوێیەکە */
+        @font-face {
+            font-family: 'NRT';
+            src: url('NRT-Reg.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        body {
+            font-family: 'NRT', sans-serif; /* بەکارهێنانی فۆنتەکە */
+            margin: 0;
+            background-color: #111827;
+            /* overflow: hidden لابراوە بۆ ئەوەی بتوانرێت بێیتە خوارەوە */
+        }
+
+        /* Animated Mesh Gradient Background */
+        .gradient-bg {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1rem;
+            background: linear-gradient(-45deg, #4f46e5, #7e22ce, #06b6d4, #2dd4bf);
+            background-size: 400% 400%;
+            animation: gradientMove 15s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Glassmorphism Effect */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+        }
+
+        /* Floating decoration elements */
+        .blob {
+            position: absolute;
+            z-index: 0;
+            filter: blur(40px);
+            opacity: 0.6;
+            animation: float 20s infinite alternate;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(100px, 50px) scale(1.2); }
+        }
+
+        /* جوانکاری بۆ خاڵبەندییەکان */
+        .custom-list li {
+            position: relative;
+            padding-right: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .custom-list li::before {
+            content: "•";
+            position: absolute;
+            right: 0;
+            color: #5eead4; /* ڕەنگی سەوزی کاڵ بۆ خاڵەکان */
+            font-size: 1.5rem;
+            line-height: 1.2;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="gradient-bg relative overflow-x-hidden">
+        
+        <div class="blob w-64 h-64 bg-purple-400 rounded-full top-10 left-10 hidden md:block"></div>
+        <div class="blob w-96 h-96 bg-blue-400 rounded-full bottom-10 right-10 hidden md:block" style="animation-delay: -5s;"></div>
+
+        <main class="relative z-10 w-full max-w-4xl mx-auto">
+            <div class="glass-card p-6 md:p-12 text-white">
+                
+                <h1 class="text-3xl md:text-5xl font-extrabold mb-8 text-center tracking-tight leading-tight text-transparent bg-clip-text bg-gradient-to-r from-teal-200 to-white">
+                    هاوڕێ، ئەو خێزانەی کە خودی خۆمان دەیدۆزینەوە
+                </h1>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                    <div class="rounded-2xl overflow-hidden border border-white/20 shadow-xl">
+                        <img src="bradar.jpg" alt="وێنەی یەکەم" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="rounded-2xl overflow-hidden border border-white/20 shadow-xl">
+                        <img src="bradarr.jpg" alt="وێنەی دووەم" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                </div>
+
+                <p class="text-lg md:text-xl text-white/90 mb-10 leading-relaxed text-justify">
+                    دەڵێن مرۆڤ ناتوانێت خێزانەکەی هەڵبژێرێت، بەڵام من دەڵێم هاوڕێ ئەو خێزانەیە کە خودی خۆمان دەیدۆزینەوە. جاران وامدەزانی هاوڕێیەتی تەنها کات بەسەربردن و پێکەنینە، بەڵام ژیان فێری کردم کە هاوڕێی ڕاستەقینە ئەو کەسەیە کە پێش ئەوەی قسە بکەیت، لە بێدەنگیت تێدەگات. ئەو کەسەی کە لە تاریکترین ساتی تەنهاییدا، وەک مۆمێک دەردەکەوێت؛ نەک بۆ ئەوەی ڕێگاکەت بۆ ڕووناک بکاتەوە، بەڵکو بۆ ئەوەی پێت بڵێت مەترسە، من لێرەم.
+                </p>
+
+                <div class="bg-black/20 rounded-2xl p-6 md:p-8 border border-white/10">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-6 text-teal-200">
+                        بۆچی هەندێک هاوڕێ لە برا نزیکترن؟
+                    </h2>
+                    
+                    <ul class="custom-list text-lg md:text-xl text-white/80 leading-relaxed">
+                        <li>
+                            لەبەردەم ئەواندا پێویستت بە خۆنواندن نییە. دەتوانیت بگریت، شکانی خۆت نیشان بدەیت، و دڵنیابیت کە ئەوان پارچە شکاوەکانت کۆدەکەنەوە نەک پێی لێ بنێن.
+                        </li>
+                        <li>
+                            هاوڕێ، ئەو کەسەیە کە لە کاتی تەنگانەدا ناپرسێت "چی بووە؟"، بەڵکو دەپرسێت "ئێستا چی بکەین؟".
+                        </li>
+                        <li>
+                            ئەگەر برا و خوشک خوێنی بێت، ئەوا ئەم جۆرە هاوڕێیە بژاردەیە. ئەوان بە ویستی خۆیان هەڵیانبژاردووە لەگەڵت بن، نەک بە حوکمی سروشت.
+                        </li>
+                        <li>
+                            هاوڕێیەتییەک کە جار وایە لە برا و خوشک نزیکتر بێت، وەک نیشتمانێک وایە کە لەناو مرۆڤێکدا جێگەی بووەتەوە. گرنگ نییە چەندە لێک دوور بین، گرنگ ئەوەیە لە کوێی دڵدا نیشتەجێین.
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
